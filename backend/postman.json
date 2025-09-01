@@ -1,0 +1,127 @@
+{
+  "info": {
+    "name": "Employee CRUD API (Student UUID)",
+    "_postman_id": "b6d85f0f-0c3d-4a8d-931c-5d1299e23c7c",
+    "description": "Postman collection for testing Employee CRUD API with Student UUID header",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Student-UUID",
+            "value": "11111111-1111-1111-1111-111111111111"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"role\": \"Developer\",\n  \"salary\": 50000\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/employees",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "v1", "employees"]
+        }
+      }
+    },
+    {
+      "name": "Get All Employees",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Student-UUID",
+            "value": "11111111-1111-1111-1111-111111111111"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/employees",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "v1", "employees"]
+        }
+      }
+    },
+    {
+      "name": "Get Employee by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Student-UUID",
+            "value": "11111111-1111-1111-1111-111111111111"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/employees/{{employeeId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "v1", "employees", "{{employeeId}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Employee",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Student-UUID",
+            "value": "11111111-1111-1111-1111-111111111111"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Updated\",\n  \"salary\": 60000\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/employees/{{employeeId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "v1", "employees", "{{employeeId}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Employee",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "X-Student-UUID",
+            "value": "11111111-1111-1111-1111-111111111111"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/employees/{{employeeId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "v1", "employees", "{{employeeId}}"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "employeeId",
+      "value": "replace_with_employee_id"
+    }
+  ]
+}
